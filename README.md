@@ -1,4 +1,4 @@
-# Mental Health in Tech Dashboard
+# Mental Health in Tech
 
 A comprehensive Streamlit-based dashboard visualizing sentiment analysis of mental health in the technology industry from 2016 to 2020.
 
