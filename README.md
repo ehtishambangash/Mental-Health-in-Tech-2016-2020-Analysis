@@ -1,89 +1,111 @@
-# 🧠 Mental Health in Tech (2016–2020) Dashboard
+# Mental Health in Tech Dashboard
 
-This project features a **Streamlit-powered interactive dashboard** that visualizes trends in mental health within the tech industry from 2016 to 2020. Using **NLP-driven sentiment analysis** of survey data, the dashboard allows users to explore sentiment changes over time, compare across demographics, and directly interact with cleaned datasets.
+A comprehensive Streamlit-based dashboard visualizing sentiment analysis of mental health in the technology industry from 2016 to 2020.
 
----
+## 📋 Project Overview
 
-## 📊 Features
+This dashboard visualizes sentiment analysis results from the OSMI Mental Health in Tech Survey conducted from 2016 to 2020. The application processes qualitative responses from survey participants, performs sentiment analysis using NLTK's VADER sentiment analyzer, and presents the results through an interactive dashboard.
 
-- **Trends by Demographics:** 
-  Visualizes sentiment distribution across gender, age groups, and other demographic factors.
+## 👨‍💻 Contributors
 
-- **Trends by Year:** 
-  Year-wise sentiment trends using line and pie charts for each year from 2016 to 2020.
+- **Ehtisham Hussain** (ehishambangash111@gmail.com)
+- **Hasnain Bakhat** (hasnainbakht47@gmail.com)
 
-- **Comparison Across Years:** 
-  A consolidated view showing how sentiments evolved over time.
+## 🚀 Getting Started
 
-- **Cleaned Dataset Viewer:** 
-  Interactive table view of cleaned data for each year.
+### Prerequisites
 
----
+- Python 3.6+
+- Streamlit
+- Pandas
+- NLTK
+- Matplotlib
+- Seaborn
+- PIL (Python Imaging Library)
 
-## 🛠 Technology Stack
+### Installation
 
-- **Python 3**
-- **Streamlit** – for the web-based dashboard
-- **Pandas** – for data processing
-- **Pillow (PIL)** – for displaying images
-- **Jupyter Notebook** – for initial data cleaning and EDA
-- **Matplotlib/Seaborn** – for creating sentiment plots
-- **Natural Language Processing (NLP)** – for sentiment analysis
+1. Clone the repository
+2. Install the required dependencies:
+```
+pip install streamlit pandas nltk matplotlib seaborn pillow
+```
+3. Download NLTK resources:
+```python
+import nltk
+nltk.download('vader_lexicon')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+```
 
----
+## 🧠 Dashboard Features
 
-## 🚀 How to Run the Dashboard
+The dashboard consists of four main sections:
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/mental-health-dashboard.git
-cd mental-health-dashboard
+1. **Trends by Demographics**: Visualizes sentiment distribution across different geographic regions using boxplots, barplots, and lineplots.
 
-### 2. Install Dependencies
-```bash
-pip install streamlit pandas pillow
+2. **Trends by Year**: Displays yearly sentiment trends through line charts and pie charts for each year from 2016 to 2020.
 
-### 3. Run the Dashboard
-```bash
-streamlit run dashboard.py
+3. **Comparison Across Years**: Provides comparative analysis of sentiment scores across all years through boxplots.
 
-### 4. Navigate the App
-Use the sidebar to explore:
+4. **View Cleaned Datasets**: Allows exploration of the processed datasets for each year.
 
-- Trends by Demographics
-- Trends by Year
-- Cross-Year Comparison
-- View Cleaned Datasets
+## 💻 How to Use the Dashboard
 
-## 🔍 How It Works
+1. Start the Streamlit application:
+```
+streamlit run app.py
+```
 
-The dashboard is divided into four main sections:
+2. Use the sidebar navigation to select between different visualization sections:
+   - **Trends by Demographics**: Explores sentiment patterns across different countries
+   - **Trends by Year**: Views year-specific sentiment distributions
+   - **Comparison Across Years**: Compares sentiment trends across all years
+   - **View Cleaned Datasets**: Examines the processed data directly
 
-- **Trends by Demographics**: Displays images from the /plots folder that compare sentiment across different population groups.
-- **Trends by Year**: For each year, a line chart and pie chart summarize the sentiment analysis, also stored in the /plots folder.
-- **Comparison Across Years**: Shows combined trends using pre-generated visuals to highlight evolving sentiment patterns.
-- **Cleaned Dataset Viewer**: Loads pre-cleaned CSVs from 2016 to 2020 and displays them using `st.dataframe()`.
+## 🔍 Technical Details
 
-Each visual and dataset is preprocessed to reduce app load time and ensure smooth performance.
+### Data Processing
 
-## 📌 Notes
+The application processes five years of survey data (2016-2020) using the following steps:
 
-- Ensure the CSV and image files are present and named exactly as expected in the `dashboard.py`.
-- If you add new data or visuals, update paths and logic in the code accordingly.
-- This dashboard is a great fit for internships, data science projects, social tech research, and mental health awareness presentations.
+1. Text cleaning and preprocessing:
+   - Converting text to lowercase
+   - Removing punctuation, numbers, and stopwords
+   - Lemmatizing words to their base form
+  
+2. Sentiment analysis using VADER:
+   - Computing compound sentiment scores
+   - Categorizing responses as positive, negative, or neutral
+   - Generating aggregated views by demographics and year
 
+### Dashboard Implementation
 
-## 📬 Authors
+The Streamlit dashboard includes:
+- Navigation sidebar for intuitive section switching
+- Interactive data tables for exploring processed data
+- Data visualizations including:
+  - Boxplots for sentiment distribution comparisons
+  - Pie charts showing sentiment category proportions
+  - Line charts tracking sentiment trends over time
+  - Bar plots comparing regional sentiment patterns
 
-- Ehtisham Hussain  
-  📧 ehishambangash111@gmail.com
+## 📊 Code Structure
 
-- Hasnain Bakhat  
-  📧 hasnainbakht47@gmail.com
+- `app.py`: Main Streamlit application file
+- `/plots`: Directory containing generated visualization images
+- `cleaned_mental_health_XXXX.csv`: Processed datasets for each year
 
----
+## 🔄 Data Flow
 
-## 📃 License
+1. Raw survey data is loaded from CSV files
+2. Text responses are cleaned and preprocessed
+3. NLTK's VADER analyzer computes sentiment scores
+4. Sentiment labels are assigned based on compound scores
+5. Processed data is saved to CSV files
+6. Visualizations are generated and displayed in the dashboard
 
-This project is intended for educational and non-commercial use. Please credit the authors when sharing.
+## 📝 License
 
+This project is licensed under the MIT License - see the LICENSE file for details.
