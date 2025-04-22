@@ -106,6 +106,3 @@ The Streamlit dashboard includes:
 5. Processed data is saved to CSV files
 6. Visualizations are generated and displayed in the dashboard
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
